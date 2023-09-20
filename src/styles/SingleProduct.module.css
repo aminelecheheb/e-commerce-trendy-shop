@@ -1,0 +1,92 @@
+.wrapper {
+  padding: 2rem 0;
+}
+
+.mb {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.exit {
+  font-size: 1.7rem;
+  color: rgb(249, 78, 78);
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.images {
+  flex-basis: 40%;
+}
+.infos {
+  flex-basis: 60%;
+}
+.big_img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.small_imgs {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.small_img {
+  position: relative;
+  width: 100px;
+  aspect-ratio: 1/1;
+  /* transition-duration: 100ms; */
+}
+
+.small_img.active {
+  border: 2px solid var(--primary);
+  border-radius: 3px;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add_btn {
+  background-color: var(--secondary);
+  color: white;
+  padding: 1rem;
+}
+.book_btn {
+  background-color: var(--active);
+  /* border: 1px solid var(--primary); */
+  color: white;
+  padding: 1rem;
+}
+
+.remove_from_cart {
+  background-color: rgb(244, 106, 106);
+  color: white;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1080px) {
+  .wrapper {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .flex {
+    flex-direction: column;
+  }
+}

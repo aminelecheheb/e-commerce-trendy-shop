@@ -1,0 +1,117 @@
+.sidebar {
+  position: fixed;
+  width: 90%;
+  max-width: 550px;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: var(--bg-light);
+  z-index: 999;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar_right {
+  right: 0;
+  top: 0;
+  border-left: 2px solid var(--primary);
+  transform: translateX(100%);
+  transition-duration: 300ms;
+  padding-bottom: 3rem;
+}
+
+.show {
+  display: block;
+  transform: translateX(0);
+}
+
+.boutique_name {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: var(--primary);
+}
+
+.close_cart {
+  position: absolute;
+  left: 1rem;
+  top: 7rem;
+  color: var(--danger);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.img_container {
+  width: 60px;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+
+.cart_items {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remove_item {
+  cursor: pointer;
+  color: var(--danger);
+}
+
+.empty {
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 4.3rem;
+  padding: 1rem;
+  background-color: var(--danger-light);
+  /* border: 1px solid var(--primary); */
+  text-align: center;
+}
+
+.totalPrice {
+  background-color: var(--bg-dark-1);
+  border: 1px solid var(--primary);
+  padding: 1rem;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.cart_infos_container {
+  /* display: flex;
+  flex-direction: column; */
+  flex-grow: 1;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.pill {
+  /* border: 1px solid var(--black); */
+  background-color: var(--bg-dark-2);
+  padding: 2px 8px;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  margin: 0;
+}

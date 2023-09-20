@@ -1,0 +1,56 @@
+.wrapper {
+  margin-left: 10rem;
+  position: relative;
+}
+
+.about {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding: 4rem 0;
+}
+
+.about h1 {
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+.about ul {
+  list-style: square;
+}
+
+.about .dolley {
+  font-family: "Aguafina Script", sans-serif;
+  letter-spacing: 3px;
+  font-size: 1.4rem;
+  color: var(--primary);
+  font-weight: 400;
+}
+
+.about form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 3rem;
+}
+.about form input {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.9rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--bg-light);
+}
+
+.about button {
+  max-width: 250px;
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-left: 0;
+  }
+  .about ul {
+    padding-left: 1rem;
+  }
+}

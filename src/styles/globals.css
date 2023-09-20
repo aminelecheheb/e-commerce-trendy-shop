@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&display=swap");
+:root {
+  --body: #fff;
+  --bg-light: #f2f2f2;
+  --primary: #0f2c59;
+  --active: #de974d;
+  --danger-light: #ffcabe;
+  --danger: rgb(253, 83, 83);
+  --secondary: #7c9d96;
+  --white: #ffffff;
+  --black: #222;
+  --bg-dark-1: #f1f8ff;
+  --bg-dark-2: #e7e7e7;
+  --swiper-navigation-color: var(--primary);
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--body);
+  border-top: 10px solid var(--primary);
+  font-family: "Chivo", sans-serif;
+  color: var(--black);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  padding-top: 3rem;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+a:hover {
+  color: var(--active);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+form button {
+  padding: 0.9rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  width: 30%;
+  border-radius: 5px;
+}
+
+p {
+  margin-bottom: 8px;
+}
+/* utilities */
+.flex_end {
+  display: flex;
+  align-items: end;
+  gap: 2px;
+}
+
+.relative {
+  position: relative;
+}
+.relative > span {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+}
+
+.cube {
+  position: absolute;
+  width: 280px;
+  aspect-ratio: 1/1;
+  border: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item_container:nth-child(2) .cube1 {
+  right: 0;
+}
+.cube1 {
+  width: 280;
+}
+.cube2 {
+  width: 240px;
+}
+.cube3 {
+  width: 200px;
+}
+.cube4 {
+  width: 160px;
+}
+.cube5 {
+  width: 120px;
+}
+
+.vh {
+  min-height: calc(100vh - 10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.deco {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+
+.white_circle {
+  background-color: transparent;
+  width: 219px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  top: 0;
+  left: 0;
+  transform: translate(-75%, -100%);
+  position: absolute;
+  z-index: 1;
+}
+.color_circle {
+  position: absolute;
+  background-color: var(--bg-dark-2);
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 181px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  /* border: 1px solid black; */
+}
+
+.about .white_circle {
+  background-color: transparent;
+  width: 180px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  top: 0;
+  left: 0;
+  transform: translate(-115%, 0);
+  position: absolute;
+  z-index: 1;
+}
+.about .color_circle {
+  position: absolute;
+  background-color: var(--bg-dark-2);
+  top: 0;
+  left: 0;
+  transform: translate(-125%, 100%);
+  width: 130px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+/* custom select box */
+
+select {
+  padding: 8px 12px;
+  background-color: var(--bg-light);
+  margin-bottom: 1rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination button {
+  background-color: var(--bg-light);
+  color: var(--black);
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  border: 1px solid var(--primary);
+}
+.pagination button.disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.new_badge {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 5px 16px;
+  display: flex;
+  max-width: max-content;
+  /* margin-left: auto; */
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.stroke {
+  text-decoration: line-through;
+  color: var(--danger) !important;
+}
+
+.variants_flex {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.variant_container {
+  overflow: hidden;
+}
+
+.variant_container .img_container {
+  position: relative;
+  width: 80px;
+  aspect-ratio: 1/1;
+}
+
+.variant_container .img {
+  object-fit: contain;
+}
+
+.variant_container p {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.active_variant {
+  border: 2px solid var(--primary);
+}

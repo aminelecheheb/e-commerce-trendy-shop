@@ -1,0 +1,42 @@
+.buyer_infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  max-width: 400px;
+}
+.form input {
+  width: 100%;
+  /* max-width: 400px; */
+  padding: 0.9rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--bg-light);
+}
+
+.fullwidth {
+  width: 100%;
+}
+.fullwidth > input {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.form button {
+  max-width: 250px;
+}
+
+.form label {
+  align-self: baseline;
+}
