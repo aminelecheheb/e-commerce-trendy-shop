@@ -72,27 +72,21 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: "SET_PAGE", payload: value });
   };
 
-  const addToCart = (item: CartItemType, cartItems: any) => {
-    console.log(item);
-
-    let ids = cartItems.map((cItem: any) => {
+  const addToCart = (item: CartItemType, cartItems: CartItemType[]) => {
+    let ids = cartItems.map((cItem: CartItemType) => {
       return cItem.id;
     });
 
-    // const tItems = cartItems.filter((el: any) => el.id === item.id);
-    // console.log(tItems.length);
-
     if (ids.includes(item.id)) {
-      const myItems = cartItems.filter((it: any) => {
+      const myItems = cartItems.filter((it: CartItemType) => {
         return it.id === item.id;
       });
 
-      const colors = myItems.map((item: any) => {
+      const colors = myItems.map((item: CartItemType) => {
         return item.selectedColor;
       });
-      console.log(colors);
 
-      myItems.map((i: any) => {
+      myItems.map((i: CartItemType) => {
         if (i.selectedColor === item.selectedColor) {
           dispatch({
             type: "INCREASE_QUANTITY",
