@@ -121,3 +121,25 @@
   background-color: var(--active);
   color: var(--white);
 }
+
+.quantity_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.quantity_container p {
+  margin: 0;
+}
+.quantity_container button {
+  /* padding: 0px 12px; */
+  width: 2.8rem;
+  height: 1.4rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 10px;
+}

@@ -110,6 +110,20 @@ const reducer = (state: StateType, action: ActionType) => {
         cartItems: tempCartItems,
       };
 
+    case "INCREASE_QUANTITY":
+      let qItems: any;
+      qItems = state.cartItems.map((item) => {
+        if (item.cartItemId === action.payload) {
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        cartItems: qItems,
+      };
+
     default:
       return state;
   }

@@ -39,6 +39,7 @@ const ProductPage = (props: { data: any }) => {
     img: images.data[0].attributes.url,
     color,
     selectedColor: activeColor,
+    quantity: 1,
   };
 
   return (
@@ -144,7 +145,10 @@ const ProductPage = (props: { data: any }) => {
             )} */}
             <button
               className={styles.add_btn}
-              onClick={() => addToCart(cartItem)}
+              onClick={() => {
+                addToCart(cartItem);
+                setActiveColor("");
+              }}
             >
               Add to Cart
             </button>

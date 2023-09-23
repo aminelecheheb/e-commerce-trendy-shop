@@ -5,9 +5,13 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useGlobalContext } from "@/context/appContext";
 
 const CartItem = (props: { item: CartItemType }) => {
-  const { state, removeUniqueFromCart, setSelectedColorInCart } =
-    useGlobalContext();
-  const { title, img, price, id, color, cartItemId } = props.item;
+  const {
+    state,
+    removeUniqueFromCart,
+    setSelectedColorInCart,
+    increaseQuantity,
+  } = useGlobalContext();
+  const { title, img, price, id, color, cartItemId, quantity } = props.item;
 
   // console.log(color);
 
@@ -39,6 +43,17 @@ const CartItem = (props: { item: CartItemType }) => {
             })}
           </div>
         )}
+        <div className={styles.quantity_container}>
+          <button>-</button>
+          <p>{quantity}</p>
+          <button
+            onClick={() => {
+              increaseQuantity(cartItemId);
+            }}
+          >
+            +
+          </button>
+        </div>
       </div>
 
       <AiOutlineClose
