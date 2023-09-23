@@ -146,7 +146,7 @@ const ProductPage = (props: { data: any }) => {
             <button
               className={styles.add_btn}
               onClick={() => {
-                addToCart(cartItem);
+                addToCart(cartItem, cartItems);
                 setActiveColor("");
               }}
             >

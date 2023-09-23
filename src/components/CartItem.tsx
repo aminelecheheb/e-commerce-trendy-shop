@@ -55,6 +55,8 @@ const CartItem = (props: { item: CartItemType }) => {
           <p>{quantity}</p>
           <button
             onClick={() => {
+              console.log(cartItemId);
+
               increaseQuantity(cartItemId);
             }}
           >

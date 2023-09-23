@@ -65,7 +65,7 @@ const CardShop = (props: { item: any; homeStyles?: boolean }) => {
         ) : (
           <button
             className={styles.add_btn}
-            onClick={() => addToCart(cartItem)}
+            onClick={() => addToCart(cartItem, cartItems)}
           >
             Add to Cart
           </button>
