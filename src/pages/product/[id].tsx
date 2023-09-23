@@ -18,7 +18,8 @@ const ProductPage = (props: { data: any }) => {
   const { state, addToCart, removeFromCart } = useGlobalContext();
   const { cartItems } = state;
 
-  console.log(props.data);
+  // console.log(props.data);
+  const [activeColor, setActiveColor] = useState("");
 
   let cartIds = cartItems.map((item) => {
     return item.id;
@@ -36,6 +37,7 @@ const ProductPage = (props: { data: any }) => {
     price,
     img: images.data[0].attributes.url,
     color,
+    selectedColor: activeColor,
   };
 
   return (
@@ -101,8 +103,7 @@ const ProductPage = (props: { data: any }) => {
                     <div className={`variant_container`}>
                       <div
                         className={`img_container ${
-                          color?.color_img?.data?.attributes?.url ===
-                            bigImage && `active_variant`
+                          color?.name === activeColor && `active_variant`
                         }`}
                       >
                         {color?.color_img?.data?.attributes?.url && (
@@ -115,6 +116,7 @@ const ProductPage = (props: { data: any }) => {
                             alt={color.name}
                             onClick={() => {
                               setBigImage(color.color_img.data.attributes.url);
+                              setActiveColor(color.name);
                             }}
                           />
                         )}

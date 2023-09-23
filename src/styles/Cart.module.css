@@ -114,6 +114,7 @@
   border-radius: 1rem;
   font-size: 0.8rem;
   margin: 0;
+  cursor: pointer;
 }
 
 .color_active {
