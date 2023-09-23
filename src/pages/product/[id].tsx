@@ -33,6 +33,7 @@ const ProductPage = (props: { data: any }) => {
 
   const cartItem: CartItemType = {
     id: props.data.id,
+    cartItemId: new Date().valueOf(),
     title,
     price,
     img: images.data[0].attributes.url,
@@ -98,7 +99,7 @@ const ProductPage = (props: { data: any }) => {
             <div className="variants_flex">
               {color?.length > 0 &&
                 color.map((color: any) => {
-                  console.log(color);
+                  // console.log(color);
                   return (
                     <div className={`variant_container`}>
                       <div
@@ -126,7 +127,7 @@ const ProductPage = (props: { data: any }) => {
                   );
                 })}
             </div>
-            {cartIds.includes(props.data.id) ? (
+            {/* {cartIds.includes(props.data.id) ? (
               <button
                 onClick={() => removeFromCart(props.data.id)}
                 className={styles.remove_from_cart}
@@ -140,7 +141,13 @@ const ProductPage = (props: { data: any }) => {
               >
                 Add to Cart
               </button>
-            )}
+            )} */}
+            <button
+              className={styles.add_btn}
+              onClick={() => addToCart(cartItem)}
+            >
+              Add to Cart
+            </button>
             {buyNow ? (
               <button
                 className={styles.remove_from_cart}

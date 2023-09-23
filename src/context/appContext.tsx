@@ -32,6 +32,7 @@ const AppContext = React.createContext<ContextType>({
   setPhoneNumber: () => {},
   setCategories: () => {},
   setSelectedColorInCart: () => {},
+  removeUniqueFromCart: () => {},
 });
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
@@ -77,6 +78,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
 
+  const removeUniqueFromCart = (id: number) => {
+    dispatch({ type: "REMOVE_UNIQUE_FROM_CART", payload: id });
+  };
+
+  // const
+
   const setFullName = (value: string) => {
     dispatch({ type: "SET_FULL_NAME", payload: value });
   };
@@ -111,6 +118,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setPhoneNumber,
         setCategories,
         setSelectedColorInCart,
+        removeUniqueFromCart,
       }}
     >
       {children}

@@ -34,6 +34,7 @@ type ContextType = {
   setPhoneNumber: (value: string) => void;
   setCategories: (value: string) => void;
   setSelectedColorInCart: (id: any, value: any) => void;
+  removeUniqueFromCart: (id: number) => void;
 };
 
 type ItemType = {
@@ -46,6 +47,7 @@ type ItemType = {
 
 type CartItemType = {
   id: number;
+  cartItemId: number;
   img: any;
   title: string;
   price: number;

@@ -30,6 +30,7 @@ const CardShop = (props: { item: any; homeStyles?: boolean }) => {
     price: startingPrice,
     img: img,
     color,
+    cartItemId: new Date().valueOf(),
   };
 
   return (

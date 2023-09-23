@@ -63,6 +63,15 @@ const reducer = (state: StateType, action: ActionType) => {
         cartItems: newItems,
       };
 
+    case "REMOVE_UNIQUE_FROM_CART":
+      let tempItems = state.cartItems.filter((item) => {
+        return item.cartItemId !== action.payload;
+      });
+      return {
+        ...state,
+        cartItems: tempItems,
+      };
+
     case "SET_FULL_NAME":
       return {
         ...state,
