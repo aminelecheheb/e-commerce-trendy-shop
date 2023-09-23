@@ -87,6 +87,20 @@ const reducer = (state: StateType, action: ActionType) => {
         categories: action.payload,
       };
 
+    case "SET_SELECTED_COLOR_IN_CART":
+      let tempCartItems: any;
+      tempCartItems = state.cartItems.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, selectedColor: action.payload.value };
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        cartItems: tempCartItems,
+      };
+
     default:
       return state;
   }

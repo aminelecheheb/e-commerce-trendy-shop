@@ -31,6 +31,7 @@ const AppContext = React.createContext<ContextType>({
   setFullName: () => {},
   setPhoneNumber: () => {},
   setCategories: () => {},
+  setSelectedColorInCart: () => {},
 });
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
@@ -88,6 +89,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: "SET_CATEGORIES", payload: value });
   };
 
+  const setSelectedColorInCart = (id: any, value: any) => {
+    dispatch({ type: "SET_SELECTED_COLOR_IN_CART", payload: { id, value } });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -105,6 +110,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setFullName,
         setPhoneNumber,
         setCategories,
+        setSelectedColorInCart,
       }}
     >
       {children}

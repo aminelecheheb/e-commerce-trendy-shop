@@ -5,8 +5,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useGlobalContext } from "@/context/appContext";
 
 const CartItem = (props: { item: CartItemType }) => {
-  const { state, removeFromCart } = useGlobalContext();
+  const { state, removeFromCart, setSelectedColorInCart } = useGlobalContext();
   const { title, img, price, id, color } = props.item;
+
   console.log(color);
 
   return (
@@ -22,7 +23,18 @@ const CartItem = (props: { item: CartItemType }) => {
         {color?.length > 0 && (
           <div className={styles.colors}>
             {color.map((co: any) => {
-              return <p className={styles.pill}>{co.name}</p>;
+              return (
+                <p
+                  onClick={() => {
+                    setSelectedColorInCart(id, co.name);
+                  }}
+                  className={`${styles.pill} ${
+                    co.name === props.item.selectedColor && styles.color_active
+                  }`}
+                >
+                  {co.name}
+                </p>
+              );
             })}
           </div>
         )}

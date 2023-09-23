@@ -115,3 +115,8 @@
   font-size: 0.8rem;
   margin: 0;
 }
+
+.color_active {
+  background-color: var(--active);
+  color: var(--white);
+}
