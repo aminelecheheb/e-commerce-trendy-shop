@@ -36,6 +36,7 @@ type ContextType = {
   setSelectedColorInCart: (id: any, value: any) => void;
   removeUniqueFromCart: (id: number) => void;
   increaseQuantity: (id: number) => void;
+  decreaseQuantity: (id: number) => void;
 };
 
 type ItemType = {

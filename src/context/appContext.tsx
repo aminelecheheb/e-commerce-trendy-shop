@@ -34,6 +34,7 @@ const AppContext = React.createContext<ContextType>({
   setSelectedColorInCart: () => {},
   removeUniqueFromCart: () => {},
   increaseQuantity: () => {},
+  decreaseQuantity: () => {},
 });
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
@@ -105,6 +106,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: "INCREASE_QUANTITY", payload: id });
   };
 
+  const decreaseQuantity = (id: number) => {
+    dispatch({ type: "DECREASE_QUANTITY", payload: id });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -125,6 +130,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setSelectedColorInCart,
         removeUniqueFromCart,
         increaseQuantity,
+        decreaseQuantity,
       }}
     >
       {children}

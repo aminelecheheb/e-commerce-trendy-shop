@@ -10,6 +10,7 @@ const CartItem = (props: { item: CartItemType }) => {
     removeUniqueFromCart,
     setSelectedColorInCart,
     increaseQuantity,
+    decreaseQuantity,
   } = useGlobalContext();
   const { title, img, price, id, color, cartItemId, quantity } = props.item;
 
@@ -44,7 +45,13 @@ const CartItem = (props: { item: CartItemType }) => {
           </div>
         )}
         <div className={styles.quantity_container}>
-          <button>-</button>
+          <button
+            onClick={() => {
+              decreaseQuantity(cartItemId);
+            }}
+          >
+            -
+          </button>
           <p>{quantity}</p>
           <button
             onClick={() => {
