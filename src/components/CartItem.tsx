@@ -27,7 +27,7 @@ const CartItem = (props: { item: CartItemType }) => {
               return (
                 <p
                   onClick={() => {
-                    setSelectedColorInCart(id, co.name);
+                    setSelectedColorInCart(cartItemId, co.name);
                   }}
                   className={`${styles.pill} ${
                     co.name === props.item.selectedColor && styles.color_active
