@@ -86,14 +86,23 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         return item.selectedColor;
       });
 
-      myItems.map((i: CartItemType) => {
-        if (i.selectedColor === item.selectedColor) {
+      // myItems.map((i: CartItemType) => {
+      //   if (i.selectedColor === item.selectedColor) {
+      //     dispatch({
+      //       type: "INCREASE_QUANTITY",
+      //       payload: i.cartItemId,
+      //     });
+      //   }
+      // });
+      for (let i = 0; i < myItems.length; i++) {
+        if (myItems[i].selectedColor === item.selectedColor) {
           dispatch({
             type: "INCREASE_QUANTITY",
-            payload: i.cartItemId,
+            payload: myItems[i].cartItemId,
           });
+          break;
         }
-      });
+      }
       if (!colors.includes(item.selectedColor)) {
         dispatch({ type: "ADD_TO_CART", payload: item });
       }
