@@ -23,7 +23,6 @@ const ProductPage = (props: { data: any }) => {
   });
 
   // console.log(props.data);
-  const [activeColor, setActiveColor] = useState("");
 
   let cartIds = cartItems.map((item) => {
     return item.id;
@@ -33,6 +32,8 @@ const ProductPage = (props: { data: any }) => {
 
   const { title, price, description, size, images, color } =
     props?.data?.attributes;
+
+  const [activeColor, setActiveColor] = useState(color[0]?.name || "");
   const [bigImage, setBigImage] = useState(images.data[0].attributes.url || "");
 
   const cartItem: CartItemType = {
@@ -157,7 +158,6 @@ const ProductPage = (props: { data: any }) => {
               className={styles.add_btn}
               onClick={() => {
                 addToCart(cartItem, cartItems);
-                setActiveColor("");
               }}
             >
               {cartIds.includes(cartItem.id) &&

@@ -14,6 +14,7 @@ const initialState = {
     phoneNumber: "",
   },
   categories: [],
+  alert: { show: false, msg: "", type: "" },
 };
 
 const AppContext = React.createContext<ContextType>({
