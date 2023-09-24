@@ -18,6 +18,10 @@ const ProductPage = (props: { data: any }) => {
   const { state, addToCart, removeFromCart } = useGlobalContext();
   const { cartItems } = state;
 
+  const colors = cartItems.map((item: CartItemType) => {
+    return item.selectedColor;
+  });
+
   // console.log(props.data);
   const [activeColor, setActiveColor] = useState("");
 
@@ -41,6 +45,12 @@ const ProductPage = (props: { data: any }) => {
     selectedColor: activeColor,
     quantity: 1,
   };
+
+  const myItem = cartItems.filter((item: CartItemType) => {
+    return (
+      item.id === cartItem.id && item.selectedColor === cartItem.selectedColor
+    );
+  });
 
   return (
     <main className={styles.wrapper}>
@@ -150,8 +160,21 @@ const ProductPage = (props: { data: any }) => {
                 setActiveColor("");
               }}
             >
-              Add to Cart
+              {cartIds.includes(cartItem.id) &&
+              colors.includes(cartItem.selectedColor)
+                ? `Increase quantity ${cartItem.selectedColor} (${myItem[0]?.quantity})`
+                : "Add to cart"}
             </button>
+            {cartIds.includes(cartItem.id) && (
+              <button
+                className={styles.remove_from_cart}
+                onClick={() => {
+                  removeFromCart(props.data.id);
+                }}
+              >
+                Remove all
+              </button>
+            )}
             {buyNow ? (
               <button
                 className={styles.remove_from_cart}
