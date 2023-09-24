@@ -22,7 +22,7 @@ export default function ProductPageContainer(props: {
 
 const ProductPage = (props: { data: any; categories: any }) => {
   const router = useRouter();
-  const { state, addToCart, removeFromCart, setCategories } =
+  const { state, addToCart, removeFromCart, setCategories, setActiveNav } =
     useGlobalContext();
   const { cartItems } = state;
 
@@ -42,6 +42,11 @@ const ProductPage = (props: { data: any; categories: any }) => {
 
   useEffect(() => {
     setCategories(myCategories);
+  }, []);
+
+  useEffect(() => {
+    setActiveNav(`categories`);
+    // setPage(1);
   }, []);
 
   const colors = cartItems.map((item: CartItemType) => {

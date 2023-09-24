@@ -15,7 +15,7 @@ const category = (props: { data: any; categories: any }) => {
 
   const pageCount = props?.data?.meta?.pagination?.pageCount || 1;
   const { category, page } = router.query;
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     category && router.push(`/categories/${category}/${state.page}`);

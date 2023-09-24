@@ -13,7 +13,7 @@ const subCategory = (props: { data: any; categories: any }) => {
   const data = props?.data?.data || [];
   const pageCount = props?.data?.meta?.pagination?.pageCount || 1;
   const { subCategory, page } = router.query;
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     subCategory && router.push(`/subCategories/${subCategory}/${state.page}`);
   }, [state.page]);
