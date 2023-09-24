@@ -2,11 +2,31 @@ import { useGlobalContext } from "@/context/appContext";
 import React, { useEffect } from "react";
 import styles from "@/styles/About.module.css";
 import Deco from "@/components/Deco";
+import axios from "axios";
+import "../axios";
 
-const about = () => {
-  const { state, setFullName, setPhoneNumber, setActiveNav } =
+const about = (props: { categories: any }) => {
+  const { state, setFullName, setPhoneNumber, setActiveNav, setCategories } =
     useGlobalContext();
   const { fullName, phoneNumber } = state.buyerInfos;
+
+  let myCategories: any = [];
+  props?.categories?.map((category: any) => {
+    myCategories = [
+      ...myCategories,
+      {
+        category: category?.attributes?.title || "",
+        subCategory:
+          category?.attributes?.sub_categories?.data?.map((subC: any) => {
+            return subC.attributes.title;
+          }) || [],
+      },
+    ];
+  });
+
+  useEffect(() => {
+    setCategories(myCategories);
+  }, []);
 
   const handleFullName = (e: any) => {
     setFullName(e.target.value);
@@ -84,3 +104,14 @@ const about = () => {
 };
 
 export default about;
+
+export async function getStaticProps() {
+  const categories = await axios.get("/categories?populate=sub_categories");
+
+  return {
+    props: {
+      categories: categories.data.data || [],
+    },
+    revalidate: 3600,
+  };
+}

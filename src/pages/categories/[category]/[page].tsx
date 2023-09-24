@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 import Pagination from "@/components/Pagination";
 import { useGlobalContext } from "@/context/appContext";
 
-const category = (props: { data: any }) => {
-  const { state, setActiveNav } = useGlobalContext();
+const category = (props: { data: any; categories: any }) => {
+  const { state, setActiveNav, setCategories } = useGlobalContext();
   const router = useRouter();
   const data = props?.data?.data || [];
   // console.log(data);
@@ -25,6 +25,25 @@ const category = (props: { data: any }) => {
     category && setActiveNav(`categories/${category}`);
     // setPage(1);
   }, [category]);
+
+  let myCategories: any = [];
+  props?.categories?.map((category: any) => {
+    myCategories = [
+      ...myCategories,
+      {
+        category: category?.attributes?.title || "",
+        subCategory:
+          category?.attributes?.sub_categories?.data?.map((subC: any) => {
+            return subC.attributes.title;
+          }) || [],
+      },
+    ];
+  });
+  // console.log(myCategories);
+
+  useEffect(() => {
+    setCategories(myCategories);
+  }, []);
 
   return (
     <main>
@@ -127,9 +146,12 @@ export async function getStaticProps(context: any) {
   const { data } = await axios.get(path);
   // console.log(data);
 
+  const categories = await axios.get("/categories?populate=sub_categories");
+
   return {
     props: {
       data: data || { data: [] },
+      categories: categories.data.data || [],
     },
 
     revalidate: 3600,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import "../../axios";
@@ -9,14 +9,40 @@ import { HiOutlineBackspace } from "react-icons/hi";
 import { useGlobalContext } from "@/context/appContext";
 import ClientInfos from "@/components/ClientInfos";
 
-export default function ProductPageContainer(props: { data: any }) {
-  return props?.data ? <ProductPage data={props.data} /> : <div>Loading</div>;
+export default function ProductPageContainer(props: {
+  data: any;
+  categories: any;
+}) {
+  return props?.data && props.categories ? (
+    <ProductPage data={props.data} categories={props.categories} />
+  ) : (
+    <div>Loading</div>
+  );
 }
 
-const ProductPage = (props: { data: any }) => {
+const ProductPage = (props: { data: any; categories: any }) => {
   const router = useRouter();
-  const { state, addToCart, removeFromCart } = useGlobalContext();
+  const { state, addToCart, removeFromCart, setCategories } =
+    useGlobalContext();
   const { cartItems } = state;
+
+  let myCategories: any = [];
+  props?.categories?.map((category: any) => {
+    myCategories = [
+      ...myCategories,
+      {
+        category: category?.attributes?.title || "",
+        subCategory:
+          category?.attributes?.sub_categories?.data?.map((subC: any) => {
+            return subC.attributes.title;
+          }) || [],
+      },
+    ];
+  });
+
+  useEffect(() => {
+    setCategories(myCategories);
+  }, []);
 
   const colors = cartItems.map((item: CartItemType) => {
     return item.selectedColor;
@@ -224,8 +250,13 @@ export const getStaticProps = async (context: any) => {
       "?populate[0]=images&populate[1]=color&populate[2]=color.color_img"
   );
 
+  const categories = await axios.get("/categories?populate=sub_categories");
+
   return {
-    props: data,
+    props: {
+      data: data?.data,
+      categories: categories.data.data || [],
+    },
     revalidate: 3600,
   };
 };
