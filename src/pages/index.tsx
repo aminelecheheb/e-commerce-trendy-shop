@@ -29,7 +29,7 @@ const index = (props: { categories: any }) => {
     setActiveNav("home");
   }, []);
   return (
-    <main>
+    <main className="homemain">
       <div className="container">
         <h1>home page</h1>
       </div>

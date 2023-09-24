@@ -8,6 +8,8 @@ import { useGlobalContext } from "@/context/appContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { state } = useGlobalContext();
+  const { activeNav } = state;
+
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showNavFixed, setShowNavFixed] = useState(false);
   const handleScroll = () => {
@@ -25,7 +27,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="vh">
       <div>
-        <header>
+        <header className={`${activeNav === "home" && styles.home_header}`}>
           <div className={styles.top}>
             {/* <p>Book an appointment +213770000077</p> */}
             <h1 className={styles.boutique_name}>Trendy Shop</h1>

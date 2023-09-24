@@ -46,6 +46,10 @@ main {
   padding-top: 3rem;
 }
 
+.homemain {
+  height: 500vh;
+}
+
 ul {
   list-style: none;
 }
